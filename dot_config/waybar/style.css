@@ -1,0 +1,226 @@
+@import "catppuccin-macchiato.css";
+
+/* general styling */
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    color: @text;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+window#waybar {
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+.modules-left,
+.modules-right {
+    border-radius: 30px;
+    background-color: shade(@base, 0.9);
+}
+
+/* workspaces */
+#workspaces {
+    border-radius: 30px;
+    border: 1px solid @mauve;
+    background-color: @surface2;
+    margin: 5px;
+    color: @lavender;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+#workspaces button:hover {
+    border: 1px solid @mauve;
+}
+
+#workspaces button:hover label {
+    color: @lavender;
+}
+
+#workspaces button.urgent {
+    background-color: @maroon;
+}
+
+#workspaces button.urgent label{
+    color: @surface1;
+}
+
+#workspaces button.active {
+    background-color: @mauve;
+}
+
+#workspaces button.active label {
+    color: @surface1;
+}
+
+#workspaces button.active:hover label {
+    color: @lavender;
+}
+
+
+/* window */
+#window {
+    border-radius: 30px;
+    border: none;
+    font-style: italic;
+    margin-right: 10px;
+}
+
+#window label {
+    color: @mauve;
+}
+
+/* pulseaudio */
+#pulseaudio {
+    background-color: @yellow;
+    border: 2px solid @surface2;
+    border-radius: 30px;
+    padding: 0 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: @surface0;
+}
+
+#pulseaudio.muted {
+    border: 1px solid @overlay0;
+    background-color: @yellow;
+}
+
+#pulseaudio:hover {
+    background-color: @surface2;
+    color: @yellow;
+    border: 2px solid @yellow;
+}
+
+/* power-profiles */
+#power-profiles-daemon {
+    border-radius: 30px;
+    padding: 0 10px;
+    margin: 5px 0;
+}
+
+#power-profiles-daemon:hover {
+    background-color: @surface2;
+}
+
+#power-profiles-daemon.performance {
+    color: @sky;
+}
+
+#power-profiles-daemon.balanced {
+    color: @text;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+
+/* clock */
+#clock {
+    border: none;
+    border-radius: 30px;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px 0;
+}
+
+#clock:hover {
+    background-color: @surface2;
+}
+
+/* group/hardware */
+
+#hardware {
+    border-radius: 30px;
+    border: 2px solid @surface2;
+    background-color: @teal;
+    margin: 5px 0;
+    padding: 0 5px;
+}
+
+#hardware label {
+    color: @surface0;
+}
+
+/* network */
+#network {
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+#network.disconnected {
+    background-color: @yellow;
+}
+
+/* cpu */
+#cpu {
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+/* memory */
+#memory {
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+/* disk */
+#disk {
+    background-color: transparent;
+    margin: 0 5px;
+}
+
+/* tray */
+#tray {
+    background-color: transparent;
+    border: 1px solid @overlay0;
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @yellow;
+}
+
+/* power */
+#custom-power {
+    border-radius: 30px;
+    padding: 0 10px;
+    border: 1px solid @overlay0;
+    background-color: @red;
+    color: @surface1;
+    padding-right: 4;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#custom-power:hover {
+    border: 1px solid @red;
+    background-color: @overlay0;
+    color: @red;
+}
+
+/* scratchpad */
+#scratchpad {
+    border-radius: 30px;
+    padding: 0 10px;
+    border: 1px solid @overlay0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}

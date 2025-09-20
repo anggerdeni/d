@@ -1,0 +1,8 @@
+eval "$(starship init zsh)"
+
+alias sb="cd $HOME/personal/fragment && nvim"
+
+alias k='kubectl'
+alias kh='kubectl --context homelab'
+
+export KUBECONFIG=$HOME/.kube/home
