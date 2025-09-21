@@ -1,11 +1,19 @@
 eval "$(starship init zsh)"
 
 alias sb="cd $HOME/personal/fragment && nvim"
+alias v=nvim
+alias vim=nvim
 
 alias k='kubectl'
 alias kh='kubectl --context homelab'
 
 export KUBECONFIG=$HOME/.kube/home
+export EDITOR=nvim
+
+# word style
+autoload -U select-word-style
+select-word-style bash
+
 
 # History related conf
 ## Enable shared history across all sessions
