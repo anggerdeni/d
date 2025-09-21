@@ -1,0 +1,151 @@
+Host ssh.denydev.com
+ProxyCommand $HOME/lab/bin/cloudflared access ssh --hostname %h
+
+Host sshgitlab.denydev.com
+ProxyCommand $HOME/lab/bin/cloudflared access ssh --hostname %h
+
+Host contabo
+    HostName 194.5.152.230
+    User root
+    IdentitiesOnly yes
+
+Host kandangbuaya
+    HostName 41.216.186.147
+    User kandangbuaya
+    IdentitiesOnly yes
+
+Host proxy_ui
+    HostName 152.118.202.101
+    User ugm
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host minerba_gitlab
+    HostName 34.101.201.175
+    User binsakti
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+# Host minerba_staging_deploy
+#     HostName 34.101.209.112
+#     User deploy
+#     IdentityFile ~/minerba/creds/vm_staging
+#     IdentitiesOnly yes
+
+Host minerba_staging_deploy
+    HostName 34.34.216.120
+    User deploy
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host clone_minerba
+    Hostname 34.34.221.60
+    User deploy
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host clone_minerba_binsakti
+    Hostname 34.34.221.60
+    User binsakti
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+# Host minerba_staging_binsakti
+#     HostName 34.101.209.112
+#     User binsakti
+#     IdentityFile ~/minerba/creds/vm_staging
+#     IdentitiesOnly yes
+
+Host minerba_staging_binsakti
+    HostName 34.34.216.120
+    User binsakti
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host minerba_old_staging
+    HostName 34.101.55.237
+    User deploy
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host minerba_stag_noviandeny
+    HostName 34.101.55.237
+    User noviandeny
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host minerba_infra_binsakti
+    Hostname 34.101.178.164
+    User binsakti
+    IdentityFile ~/minerba/creds/vm_staging
+    IdentitiesOnly yes
+
+Host p_master
+    Hostname 10.22.4.101
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_slave1
+    Hostname 10.22.4.102
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_slave2
+    Hostname 10.22.4.103
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_slave3
+    Hostname 10.22.4.104
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_db_master
+    Hostname 10.22.4.105
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_db_slave
+    Hostname 10.22.4.106
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_kafka
+    Hostname 10.22.4.107
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_elk
+    Hostname 10.22.4.108
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_monitoring
+    Hostname 10.22.4.109
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
+
+Host p_security
+    Hostname 10.22.4.110
+    User ved-abrenim
+	Port 22
+	PreferredAuthentications password
+	PasswordAuthentication yes
