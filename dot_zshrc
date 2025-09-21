@@ -6,3 +6,21 @@ alias k='kubectl'
 alias kh='kubectl --context homelab'
 
 export KUBECONFIG=$HOME/.kube/home
+
+# History related conf
+## Enable shared history across all sessions
+setopt HIST_IGNORE_DUPS          # Ignore duplicate entries
+setopt HIST_IGNORE_SPACE         # Ignore commands that start with a space
+setopt HIST_FIND_NO_DUPS         # Don't show duplicates when searching history
+setopt HIST_REDUCE_BLANKS        # Remove redundant blanks from history
+
+## Ensure history is saved immediately
+setopt INC_APPEND_HISTORY        # Immediately append to the history file
+setopt SHARE_HISTORY             # Share history across all sessions
+
+## Set a large history file size (adjust as needed)
+HISTSIZE=10000                   # Maximum number of events to keep in memory
+SAVEHIST=10000                   # Maximum number of events to save to history file
+
+## Location of the history file (ensure it's in a consistent place)
+HISTFILE=~/.zsh_history
