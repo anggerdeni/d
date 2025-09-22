@@ -42,3 +42,5 @@ SAVEHIST=10000                   # Maximum number of events to save to history f
 
 ## Location of the history file (ensure it's in a consistent place)
 HISTFILE=~/.zsh_history
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
