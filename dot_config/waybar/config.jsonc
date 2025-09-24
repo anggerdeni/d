@@ -20,6 +20,7 @@
     "group/hardware",
     "keyboard-state",
     "tray",
+    "battery",
     "custom/power"
   ],
   "hyprland/workspaces": {

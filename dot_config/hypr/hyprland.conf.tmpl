@@ -18,7 +18,11 @@ source=~/.config/hypr/macchiato.conf
 ################
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
+{{ if eq .chezmoi.hostname "asus" }}
+monitor=,preferred,auto,1.25
+{{ else }}
 monitor=,preferred,auto,auto
+{{ end }}
 
 
 ###################
