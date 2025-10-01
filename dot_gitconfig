@@ -1,0 +1,8 @@
+[user]
+	email = anggerdeni@gmail.com
+	name = Novian Deny
+[pull]
+	ff = only
+
+[includeIf "gitdir/i:~/work/"]
+    path = ~/.gitconfig-work
