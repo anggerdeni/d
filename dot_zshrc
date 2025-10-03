@@ -1,5 +1,7 @@
 eval "$(starship init zsh)"
 
+export PATH=$PATH:$HOME/.local/scripts
+
 alias cd=z
 alias ls=eza
 
@@ -8,7 +10,18 @@ alias v=nvim
 alias vim=nvim
 
 alias k='kubectl'
+
 alias kh='kubectl --context homelab'
+alias kdt='kubectl --context gke_deliverect-testing_europe-west1-b_testing'
+alias kdd='kubectl --context gke_deliverect-dev_europe-west1-b_dev'
+alias kdm='kubectl --context gke_deliverect-staging_europe-west1-b_monitoring'
+alias kds='kubectl --context gke_deliverect-staging_europe-west1-b_staging'
+
+alias kch='kubectx homelab'
+alias kcdt='kubectx gke_deliverect-testing_europe-west1-b_testing'
+alias kcdd='kubectx gke_deliverect-dev_europe-west1-b_dev'
+alias kcdm='kubectx gke_deliverect-staging_europe-west1-b_monitoring'
+alias kcds='kubectx gke_deliverect-staging_europe-west1-b_staging'
 
 export KUBECONFIG=$HOME/.kube/home
 export EDITOR=nvim
