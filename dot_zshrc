@@ -17,6 +17,7 @@ alias kdd='kubectl --context gke_deliverect-dev_europe-west1-b_dev'
 alias kdm='kubectl --context gke_deliverect-staging_europe-west1-b_monitoring'
 alias kds='kubectl --context gke_deliverect-staging_europe-west1-b_staging'
 alias kdyn='kubectl --context gke_monitoring-nonprod-710788_europe-west1_ypodomi-nonprod'
+alias kdyp='kubectl --context gke_monitoring-prod-359018_europe-west1_ypodomi-production'
 alias kdl='kubectl --context gke_localtests-344116_europe-west1_istio-test'
 
 alias kch='kubectx homelab'
@@ -25,6 +26,7 @@ alias kcdd='kubectx gke_deliverect-dev_europe-west1-b_dev'
 alias kcdm='kubectx gke_deliverect-staging_europe-west1-b_monitoring'
 alias kcds='kubectx gke_deliverect-staging_europe-west1-b_staging'
 alias kcdyn='kubectx gke_monitoring-nonprod-710788_europe-west1_ypodomi-nonprod'
+alias kcdyp='kubectx gke_monitoring-prod-359018_europe-west1_ypodomi-production'
 alias kcdl='kubectx gke_localtests-344116_europe-west1_istio-test'
 
 export KUBECONFIG=$HOME/.kube/home
