@@ -6,4 +6,4 @@ gcloud container clusters get-credentials monitoring --zone europe-west1-b --pro
 gcloud container clusters get-credentials ypodomi-nonprod --region europe-west1 --project monitoring-nonprod-710788
 gcloud container clusters get-credentials istio-test --region europe-west1 --project localtests-344116
 gcloud container clusters get-credentials ypodomi-production --region europe-west1 --project monitoring-prod-359018
-# gcloud container clusters get-credentials production --zone europe-west1-b --project deliverect-production
+gcloud container clusters get-credentials production --zone europe-west1-b --project deliverect-production
