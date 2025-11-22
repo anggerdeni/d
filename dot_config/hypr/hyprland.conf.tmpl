@@ -249,7 +249,8 @@ bind = $mainMod SHIFT, SPACE, togglefloating,
 bind = $mainMod, SPACE, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, V, togglesplit, # dwindle
-bind = , PRINT, exec, hyprshot -m region
+bind = , PRINT, exec, hyprshot -m region --clipboard-only
+bind = $mainMod, PRINT, exec, hyprshot -m region
 
 # Move focus with mainMod + arrow keys/wasd
 bind = $mainMod, left, movefocus, l
