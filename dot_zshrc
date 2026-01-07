@@ -9,6 +9,11 @@ alias sb="cd $HOME/personal/fragment && nvim"
 alias v=nvim
 alias vim=nvim
 
+# per TMUX an
+alias tn='tmux new-session -A -s' # create new session if not exist and attach if it does
+alias ta='tmux attach -t' # attach to the session
+alias ts='tmux switch -t' # switch to another session
+
 alias k='kubectl'
 
 alias kh='kubectl --context homelab'
