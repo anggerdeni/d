@@ -1,0 +1,6 @@
+[user]
+	name = Novian Deny
+	email = hello@novian.dev
+
+[core]
+    sshCommand = ssh -i ~/.ssh/r00t -o IdentitiesOnly=yes

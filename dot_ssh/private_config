@@ -149,3 +149,11 @@ Host p_security
 	Port 22
 	PreferredAuthentications password
 	PasswordAuthentication yes
+
+Host homelab-git
+    HostName git.box
+    Port 222
+    User git
+    IdentityFile ~/.ssh/r00t
+    IdentitiesOnly yes
+

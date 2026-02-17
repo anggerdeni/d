@@ -6,3 +6,6 @@
 
 [includeIf "gitdir/i:~/work/"]
     path = ~/.gitconfig-work
+
+[includeIf "gitdir/i:~/homelab/"]
+    path = ~/.gitconfig-homelab
