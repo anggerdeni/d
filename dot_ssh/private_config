@@ -150,7 +150,7 @@ Host p_security
 	PreferredAuthentications password
 	PasswordAuthentication yes
 
-Host homelab-git
+Host git.box
     HostName git.box
     Port 222
     User git
