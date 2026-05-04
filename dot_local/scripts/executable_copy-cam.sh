@@ -29,12 +29,12 @@ process_files() {
         
         # Extract Date (using exiftool for JPG/ARW, ffprobe for MP4)
         if [[ "$ext" == "ARW" || "$ext" == "JPG" ]]; then
-            creation_date=$(exiftool -d "%Y%m%d" -DateTimeOriginal -S -s "$src_file")
+            creation_date=$(exiftool -d "%Y%m%d%H%M%S" -DateTimeOriginal -S -s "$src_file")
         else
-            creation_date=$(ffprobe -v quiet -select_streams v:0 -show_entries stream_tags=creation_time -of default=noprint_wrappers=1:nokey=1 "$src_file" | cut -d'T' -f1 | sed 's/-//g')
+            creation_date=$(ffprobe -v quiet -select_streams v:0 -show_entries stream_tags=creation_time -of default=noprint_wrappers=1:nokey=1 "$src_file" | sed 's/T/-/g' | sed 's/:/-/g' | cut -d'.' -f1 | sed 's/-//g')
         fi
 
-        [ -z "$creation_date" ] && creation_date=$(date -r "$src_file" +%Y%m%d)
+        [ -z "$creation_date" ] && creation_date=$(date -r "$src_file" +%Y%m%d%H%M%S)
 
         year_folder="${creation_date:0:4}"
         target_dir="${NAS_ROOT}/${type_folder}/${year_folder}"
@@ -53,15 +53,41 @@ process_files() {
     done
 }
 
+upload_to_immich() {
+    local ext="JPG"
+
+    
+    echo "Processing $CAM_MOUNT/DCIM/"
+    find "$CAM_MOUNT/DCIM/" -type f -iname "*.$ext" | while read -r src_file; do
+        creation_date=$(exiftool -d "%Y%m%d%H%M%S" -DateTimeOriginal -S -s "$src_file")
+        [ -z "$creation_date" ] && creation_date=$(date -r "$src_file" +%Y%m%d%H%M%S)
+
+        year_folder="${creation_date:0:4}"
+        target_dir="$(dirname $(realpath $src_file))"
+
+        dest_name="${target_dir}/${creation_date}.${ext}"
+        counter=1
+        while [ -e "$dest_name" ]; do
+            dest_name="${target_dir}/${creation_date}_${counter}.${ext}"
+            ((counter++))
+        done
+
+        # Copy instead of Move to avoid the 'Permission Denied' issue on SD
+        echo "Renaming: $(basename "$src_file") -> $(basename "$dest_name")"
+        mv "$src_file" "$dest_name"
+    done
+
+    NODE_TLS_REJECT_UNAUTHORIZED=0 immich upload \
+      --recursive \
+      "$CAM_MOUNT/DCIM/" # This will upload all image found 
+}
+
 # --- 4. Run Import to NAS ---
 process_files "MP4" "videos"
 process_files "ARW" "pictures"
 #process_files "JPG" "pictures" # JPGs also go to pictures/year
 
 # --- 5. Upload JPGs to Immich ---
-echo "Uploading JPGs to Immich..."
-NODE_TLS_REJECT_UNAUTHORIZED=0 immich upload \
-  --recursive \
-  "$CAM_MOUNT/DCIM/" # This will upload all JPGs found in the NAS picture folder
+upload_to_immich
 
 echo "Success! NAS updated and Immich sync started."
