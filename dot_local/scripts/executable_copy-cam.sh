@@ -63,7 +63,8 @@ upload_to_immich() {
         [ -z "$creation_date" ] && creation_date=$(date -r "$src_file" +%Y%m%d%H%M%S)
 
         year_folder="${creation_date:0:4}"
-        target_dir="$(dirname $(realpath $src_file))"
+        fpath=$(realpath $src_file)
+        target_dir=$(dirname "$fpath")
 
         dest_name="${target_dir}/${creation_date}.${ext}"
         counter=1
