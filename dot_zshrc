@@ -25,6 +25,8 @@ alias kdyn='kubectl --context gke_monitoring-nonprod-710788_europe-west1_ypodomi
 alias kdyp='kubectl --context gke_monitoring-prod-359018_europe-west1_ypodomi-production'
 alias kdl='kubectl --context gke_localtests-344116_europe-west1_istio-test'
 alias kdp='kubectl --context gke_deliverect-production_europe-west1-b_production'
+alias kdcp='kubectl --context gke_chatfood_europe-west1_production'
+alias kdcs='kubectl --context gke_chatfood_europe-west1_staging'
 
 alias kch='kubectx homelab'
 alias kcdt='kubectx gke_deliverect-testing_europe-west1-b_testing'
@@ -35,6 +37,23 @@ alias kcdyn='kubectx gke_monitoring-nonprod-710788_europe-west1_ypodomi-nonprod'
 alias kcdyp='kubectx gke_monitoring-prod-359018_europe-west1_ypodomi-production'
 alias kcdl='kubectx gke_localtests-344116_europe-west1_istio-test'
 alias kcdp='kubectx gke_deliverect-production_europe-west1-b_production'
+
+kch_seal_file() {
+    local input_file="$1"
+    local output_file="$2"
+
+    if [[ -z "$input_file" || -z "$output_file" ]]; then
+        echo "Usage: seal_file <input_file> <output_file>"
+        return 1
+    fi
+
+    kubeseal \
+        --context homelab \
+        --controller-name sealed-secrets \
+        --controller-namespace sealed-secrets \
+        -f "$input_file" \
+        -w "$output_file"
+}
 
 export KUBECONFIG=$HOME/.kube/home
 export EDITOR=nvim

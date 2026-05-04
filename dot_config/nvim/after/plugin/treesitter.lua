@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter').setup {
   ensure_installed = { 'astro', 'c', 'go', 'lua', 'python', 'rust', 'typescript', 'http', 'json', 'markdown', 'markdown_inline' },
 
   highlight = { enable = true },
