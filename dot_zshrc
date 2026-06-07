@@ -9,6 +9,10 @@ alias sb="cd $HOME/personal/fragment && nvim"
 alias v=nvim
 alias vim=nvim
 
+# claude
+alias claude-work='CLAUDE_CONFIG_DIR=$HOME/.claude-work claude'
+alias claude-personal='CLAUDE_CONFIG_DIR=$HOME/.claude-personal claude'
+
 # per TMUX an
 alias tn='tmux new-session -A -s' # create new session if not exist and attach if it does
 alias ta='tmux attach -t' # attach to the session

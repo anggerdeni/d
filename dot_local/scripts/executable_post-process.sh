@@ -32,6 +32,6 @@ process_files() {
 }
 
 # --- 4. Run Import to NAS ---
-process_files $1 "ARW"
+process_files $1 $2
 
 echo "Success!"

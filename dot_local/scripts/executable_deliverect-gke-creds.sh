@@ -10,9 +10,12 @@ gcloud container clusters get-credentials ypodomi-production --region europe-wes
 gcloud container clusters get-credentials production --zone europe-west1-b --project deliverect-production
 gcloud container clusters get-credentials nonprod-sec-cluster --region europe-west1 --project security-nonprod-123456
 gcloud container clusters get-credentials prod-sec-cluster --region europe-west1 --project security-prod-123456
+gcloud container clusters get-credentials data-prod --zone europe-west1-c --project data-prod-123457
+gcloud container clusters get-credentials data-nonprod --zone europe-west1-c --project data-nonprod-123456
 
 # Chatfood
 gcloud container clusters get-credentials production --region europe-west1 --project chatfood
 gcloud container clusters get-credentials staging --region europe-west1 --project chatfood
 gcloud container clusters get-credentials production-mena --region europe-west1 --project chatfood
 gcloud container clusters get-credentials staging-mena --region europe-west1 --project chatfood
+
